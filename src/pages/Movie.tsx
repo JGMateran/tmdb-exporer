@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Layout } from '../components/Layout'
 import { useMovie } from '../lib/tmdb'
 import { Error } from './Error'
 
 import { Loading } from '../components/Loading'
+import { Credits } from '../components/Credits'
 
 const Backdrop = ({ name }: { name: string }) => {
   return (
@@ -23,13 +23,6 @@ export const Movie = () => {
 
   const { data, error } = useMovie(params.id as string)
 
-  useEffect(
-    () => {
-      console.log(data)
-    },
-    [data]
-  )
-
   if (error) return <Error />
   if (!data) return <Loading />
 
@@ -41,6 +34,8 @@ export const Movie = () => {
         <h2 className="text-3xl font-extrabold mt-8 mb-4">{data.title}</h2>
         <p className="leading-7 dark:text-gray-400 text-gray-700">{data.overview}</p>
       </div>
+
+      <Credits id={data.id} />
     </Layout>
   )
 }

@@ -10,7 +10,7 @@ export const Topbar = () => {
       <Container className="h-14 flex items-center">
 
         <h2 className="flex-1 text-xl font-extrabold">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="inline-flex items-center">
             <Logo className="mr-4" />
             Explorador
           </Link>

@@ -3,6 +3,41 @@ import useSWRInfinite from 'swr/infinite'
 
 const API_KEY = import.meta.env.VITE_API_KEY
 
+export interface iCrew {
+  adult: boolean;
+  credit_id: string
+  department: string;
+  gender: number;
+  id: number;
+  job: string;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string | null;
+}
+
+export interface iCast {
+  adult: boolean;
+  cast_id: number;
+  character: string;
+  credit_id: string;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  order: number;
+  original_name: string;
+  popularity: number;
+  profile_path: string | null;
+}
+
+interface iCredits {
+  id: number;
+  cast: iCast[];
+  crew: iCrew[];
+}
+
 export interface iMovie {
   adult: boolean;
   backdrop_path: string;
@@ -51,4 +86,15 @@ export const getKey = (index: number) => {
 
 export function usePopular () {
   return useSWRInfinite<iMoviePage>(getKey, popularFetcher)
+}
+
+export function fetcher (url: string): Promise<iCredits> {
+  return fetch(url).then((res) => res.json())
+}
+
+export function useCredits (id: number) {
+  return useSWRImmutable<iCredits>(
+    createBaseUrl(`/movie/${id}/credits`),
+    fetcher
+  )
 }
