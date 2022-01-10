@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 import { usePopular } from '../lib/tmdb'
 import { Layout } from '../components/Layout'
 import { Movies } from '../components/Movies'
@@ -16,13 +14,6 @@ export const Home = () => {
     error,
     setSize
   } = usePopular()
-
-  useEffect(
-    () => {
-      console.log(data)
-    },
-    [data]
-  )
 
   if (error) {
     return (
