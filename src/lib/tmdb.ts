@@ -1,7 +1,7 @@
 import useSWRImmutable from 'swr/immutable'
 import useSWRInfinite from 'swr/infinite'
 
-const { VITE_API_KEY } = import.meta.env
+const API_KEY = import.meta.env.VITE_API_KEY
 
 export interface iMovie {
   adult: boolean;
@@ -21,7 +21,7 @@ export interface iMovie {
 }
 
 export function createBaseUrl (url: string) {
-  return `https://api.themoviedb.org/3${url}?api_key=${VITE_API_KEY}&language=es-ES`
+  return `https://api.themoviedb.org/3${url}?api_key=${API_KEY}&language=es-ES`
 }
 
 export interface iMoviePage {
