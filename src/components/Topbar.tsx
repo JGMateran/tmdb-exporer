@@ -3,76 +3,10 @@ import { Container } from './Container'
 
 import { Logo } from './Logo'
 import { DarkButton } from './DarkButton'
-import { User, Search, X } from 'react-feather'
+import { User, Search } from 'react-feather'
 
-import clsx from 'clsx'
-import { useEffect, useRef, useState } from 'react'
-
-function useToggle (initial: boolean): [
-  boolean,
-  {
-    on: () => void;
-    off: () => void;
-    toggle: () => void;
-  },
-] {
-  const [isActive, setIsActive] = useState<boolean>(initial)
-
-  const toggle = () => setIsActive(!isActive)
-  const on = () => setIsActive(true)
-  const off = () => setIsActive(false)
-
-  return [
-    isActive,
-    { on, off, toggle }
-  ]
-}
-
-const Searcher = ({
-  active = true,
-  onClose = () => {}
-}: {
-  active?: boolean,
-  onClose?: () => void
-}) => {
-  const searcher = useRef<HTMLInputElement>(null)
-
-  useEffect(
-    () => {
-      if (!searcher.current) return
-
-      if (active) {
-        searcher.current.focus()
-      }
-    },
-    []
-  )
-
-  return (
-    <div className={clsx(
-      'absolute top-0 pt-16 mx-auto duration-200 inset-x-0 z-40',
-      {
-        'translate-y-0': active,
-        '-translate-y-full': !active
-      }
-    )}>
-      <Container className="w-full text-black">
-        <div className="px-6 rounded-lg bg-white/70 backdrop-blur-sm relative flex items-center h-16">
-          <Search />
-          <input
-            ref={searcher}
-            type="text"
-            placeholder="¿Que estás buscando?"
-            className="bg-transparent px-4 h-12 w-full rounded-md text-black placeholder-gray-900 focus:outline-none"
-          />
-          <button onClick={onClose}>
-            <X />
-          </button>
-        </div>
-      </Container>
-    </div>
-  )
-}
+import { Searcher } from './Searcher'
+import { useToggle } from '../hooks/useToggle'
 
 export const Topbar = () => {
   const [open, setOpen] = useToggle(false)

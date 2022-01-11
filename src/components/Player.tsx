@@ -18,11 +18,14 @@ export const Player = ({ id }: { id: number }) => {
               href={`https://www.youtube.com/watch?v=${video.key}`}
               target="_blank"
               key={video.id}
-              className="hover:bg-gray-800/50 p-4 border-b border-gray-800 flex items-center" rel="noreferrer"
+              rel="noreferrer"
+              className="flex items-center py-4 border-b border-gray-800"
             >
-              <Play className="mr-4" />
-              <div className="flex flex-col items-start">
-                <h2 className="text-base text-white font-bold">
+              <div>
+                <Play className="mr-4 flex-1" />
+              </div>
+              <div className="overflow-hidden text-left items-start justify-center">
+                <h2 className="flex-1 truncate font-semibold">
                   {video.name}
                 </h2>
                 <p className="text-sm text-gray-400">
