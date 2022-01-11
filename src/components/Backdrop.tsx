@@ -1,6 +1,5 @@
 import { Play, Info } from 'react-feather'
 import { Container } from './Container'
-import { Button } from './Button'
 import { iMovie } from '../lib/tmdb'
 
 import {
@@ -9,9 +8,28 @@ import {
 } from 'date-fns'
 
 import { es } from 'date-fns/locale'
+import { Link } from 'react-router-dom'
+import React from 'react'
 
 function formatDate (date: string) {
   return format(parseISO(date), 'dd MMMM yyyy', { locale: es })
+}
+
+const CustomLink = ({
+  to,
+  children
+}: {
+  to: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <Link
+      to={to}
+      className="active:scale-95 focus:ring-2 ring-blue-300 focus:outline-none uppercase font-semibold inline-flex items-center border text-sm border-transparent h-11 px-4 rounded-md bg-blue-600 text-white"
+    >
+      {children}
+    </Link>
+  )
 }
 
 export const Backdrop = (props: iMovie) => {
@@ -40,16 +58,16 @@ export const Backdrop = (props: iMovie) => {
             </h2>
             <div className="flex sm:space-x-2 sm:space-y-0 sm:items-center sm:flex-row flex-col space-y-2">
               <div>
-                <Button>
+                <CustomLink to={`/movie/${props.id}`}>
                   <Play className="mr-3" />
-                  Ver trailer
-                </Button>
+                  Reproducir
+                </CustomLink>
               </div>
               <div>
-                <Button>
+                <CustomLink to={`/movie/${props.id}`} >
                   <Info className="mr-3" />
                   Mas información
-                </Button>
+                </CustomLink>
               </div>
             </div>
           </div>

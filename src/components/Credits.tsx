@@ -20,10 +20,13 @@ export const Credits = ({ id }: { id: number }) => {
 
   return (
     <>
-
-      <h2 className="text-center mt-10 mb-10 text-3xl font-bold">
-        Reparto
-      </h2>
+      {
+        data.cast.length > 0 && (
+          <h2 className="text-center mt-10 mb-10 text-3xl font-bold">
+            Reparto
+          </h2>
+        )
+      }
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8">
         {

@@ -3,6 +3,24 @@ import useSWRInfinite from 'swr/infinite'
 
 const API_KEY = import.meta.env.VITE_API_KEY
 
+export interface iVideo {
+  id: string;
+  iso_639_1: string;
+  iso_3166_1: string;
+  key: string;
+  name: string;
+  official: boolean;
+  published_at: string;
+  site: string;
+  size: number
+  type: string;
+}
+
+export interface iVideoPage {
+  id: number;
+  results: iVideo[];
+}
+
 export interface iCrew {
   adult: boolean;
   credit_id: string
@@ -97,4 +115,10 @@ export function useCredits (id: number) {
     createBaseUrl(`/movie/${id}/credits`),
     fetcher
   )
+}
+
+export function useVideo (id: number) {
+  const url = createBaseUrl(`/movie/${id}/videos`)
+
+  return useSWRImmutable<iVideoPage>(url, (url) => fetch(url).then((res) => res.json()))
 }

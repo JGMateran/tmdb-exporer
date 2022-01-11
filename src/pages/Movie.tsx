@@ -6,6 +6,7 @@ import { Error } from './Error'
 import { Loading } from '../components/Loading'
 import { Credits } from '../components/Credits'
 import { Backdrop } from '../components/Backdrop'
+import { Player } from '../components/Player'
 
 export const Movie = () => {
   const params = useParams()
@@ -25,9 +26,10 @@ export const Movie = () => {
             Sinopsis
           </h2>
           <p className="leading-7 dark:text-gray-400 text-gray-700">{data.overview}</p>
-        </div>
 
-        <Credits id={data.id} />
+          <Player id={data.id} />
+          <Credits id={data.id} />
+        </div>
       </Layout>
     </>
   )

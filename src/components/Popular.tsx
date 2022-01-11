@@ -4,7 +4,7 @@ import { Poster } from './Poster'
 
 export const Popular = (props: iMovie) => {
   return (
-    <Link className="hover:scale-105 duration-150" to={`movie/${props.id}`}>
+    <Link className="focus:outline-none focus:scale-105 hover:scale-105 duration-150" to={`movie/${props.id}`}>
       <Poster name={props.poster_path} />
       <div className="text-base font-extrabold p-4 truncate">
         {props.title}
