@@ -4,16 +4,7 @@ import { CustomLink } from './CustomLink'
 
 import { iMovie } from '../lib/tmdb'
 
-import {
-  format,
-  parseISO
-} from 'date-fns'
-
-import { es } from 'date-fns/locale'
-
-function formatDate (date: string) {
-  return format(parseISO(date), 'dd MMMM yyyy', { locale: es })
-}
+import { formatDate } from '../utils/formatDate'
 
 export const Backdrop = (props: iMovie) => {
   return (
@@ -41,13 +32,13 @@ export const Backdrop = (props: iMovie) => {
             </h2>
             <div className="flex sm:space-x-2 sm:space-y-0 sm:items-center sm:flex-row flex-col space-y-2">
               <div>
-                <CustomLink to={`/movie/${props.id}`}>
+                <CustomLink to={`/movie/${props.id}#overview`}>
                   <Play className="mr-3" />
                   Reproducir
                 </CustomLink>
               </div>
               <div>
-                <CustomLink to={`/movie/${props.id}`} >
+                <CustomLink to={`/movie/${props.id}#overview`} >
                   <Info className="mr-3" />
                   Mas información
                 </CustomLink>

@@ -3,12 +3,13 @@ import type { iMovie } from '../lib/tmdb'
 import { usePopular } from '../lib/tmdb'
 import { Layout } from '../components/Layout'
 import { Movies } from '../components/Movies'
-import { Loading } from '../components/Loading'
 import { Button } from '../components/Button'
 import { Backdrop } from '../components/Backdrop'
 
 import { ArrowDownCircle } from 'react-feather'
 import useMovieRandom from '../hooks/useMovieRandom'
+import { Loading } from '../components/Loading'
+import { Error } from './Error'
 
 const meta = {
   title: 'El mejor lugar para las mejores películas'
@@ -24,14 +25,7 @@ export const Home = () => {
 
   const { movie } = useMovieRandom(data)
 
-  if (error) {
-    return (
-      <h2>
-        Error
-      </h2>
-    )
-  }
-
+  if (error) return <Error />
   if (!data) return <Loading />
 
   return (
