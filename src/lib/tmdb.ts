@@ -59,7 +59,7 @@ export function createBaseUrl (url: string) {
   return `https://api.themoviedb.org/3${url}?api_key=${API_KEY}&language=es-ES`
 }
 
-export interface iMoviePage {
+export interface iPage {
   page: number;
   results: iMovie[];
   total_pages: number;
@@ -85,7 +85,7 @@ export const getKey = (index: number) => {
 }
 
 export function usePopular () {
-  return useSWRInfinite<iMoviePage>(getKey, popularFetcher)
+  return useSWRInfinite<iPage>(getKey, popularFetcher)
 }
 
 export function fetcher (url: string): Promise<iCredits> {

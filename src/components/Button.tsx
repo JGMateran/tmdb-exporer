@@ -1,15 +1,25 @@
-import type { HTMLAttributes } from 'react'
+import type { ButtonHTMLAttributes } from 'react'
 import clsx from 'clsx'
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'outline'
+}
 
 export const Button = ({
   className,
+  variant = 'primary',
   ...props
-}: HTMLAttributes<HTMLButtonElement>) => {
+}: ButtonProps) => {
   return (
     <button
       {...props}
+
       className={clsx(
-        'dark:border-gray-500 border-gray-400 focus:outline-none dark:focus:bg-gray-800/90 focus:bg-gray-200 active:scale-95 h-11 border px-4 rounded-md text-sm uppercase font-semibold',
+        'active:scale-95 focus:ring-2 ring-blue-300 focus:outline-none uppercase font-semibold inline-flex items-center border text-sm border-transparent h-11 px-4 rounded-md',
+        {
+          'bg-blue-600 text-white': variant === 'primary',
+          'border-blue-600 bg-transparent text-blue-600': variant === 'outline'
+        },
         className
       )}
     />

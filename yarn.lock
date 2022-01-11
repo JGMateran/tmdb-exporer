@@ -725,6 +725,11 @@ csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.10.tgz#2ad3a7bed70f35b965707c092e5f30b327c290e5"
   integrity sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==
 
+date-fns@^2.28.0:
+  version "2.28.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
+  integrity sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==
+
 debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -1621,6 +1626,16 @@ json5@^2.1.2:
   dependencies:
     array-includes "^3.1.3"
     object.assign "^4.1.2"
+
+just-flatten-it@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/just-flatten-it/-/just-flatten-it-5.0.1.tgz#4c782f6ae0252aa1413a972b4e6c77bebe039d94"
+  integrity sha512-tbh2Gu/gDuankZcdSVXaIcZ+PwTyrPBbNQfpga/l0IrNa4qE/koejib3lciAD44LNtxzor8iq5EPnh/wuDIL2w==
+
+just-random@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/just-random/-/just-random-3.0.1.tgz#7bee212808686683a755d93842f1af86a02b3026"
+  integrity sha512-JOp2xkWZcPNEsDRJOWupw/qJhqUakcNi1gXCqRyix00jUJP37aJUaHuyjeQLC1Vg6ts+cNWWGifdHmP88A6uvA==
 
 levn@^0.4.1:
   version "0.4.1"

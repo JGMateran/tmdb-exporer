@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
+    "date-fns": "^2.28.0",
     "eslint": "^8.6.0",
+    "just-flatten-it": "^5.0.1",
+    "just-random": "^3.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",

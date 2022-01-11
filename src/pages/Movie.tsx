@@ -5,18 +5,7 @@ import { Error } from './Error'
 
 import { Loading } from '../components/Loading'
 import { Credits } from '../components/Credits'
-
-const Backdrop = ({ name }: { name: string }) => {
-  return (
-    <div className="relative after:pt-[56.25%] after:block">
-      <img
-        className="absolute inset-0 block w-full object-cover"
-        src={`https://image.tmdb.org/t/p/w500/${name}`}
-        alt={name}
-      />
-    </div>
-  )
-}
+import { Backdrop } from '../components/Backdrop'
 
 export const Movie = () => {
   const params = useParams()
@@ -27,15 +16,19 @@ export const Movie = () => {
   if (!data) return <Loading />
 
   return (
-    <Layout title={data.title}>
-      <Backdrop name={data.backdrop_path} />
+    <>
+      <Backdrop {...data} />
 
-      <div className="text-center">
-        <h2 className="text-3xl font-extrabold mt-8 mb-4">{data.title}</h2>
-        <p className="leading-7 dark:text-gray-400 text-gray-700">{data.overview}</p>
-      </div>
+      <Layout title={data.title}>
+        <div className="text-center">
+          <h2 className="text-3xl font-extrabold mb-4">
+            Sinopsis
+          </h2>
+          <p className="leading-7 dark:text-gray-400 text-gray-700">{data.overview}</p>
+        </div>
 
-      <Credits id={data.id} />
-    </Layout>
+        <Credits id={data.id} />
+      </Layout>
+    </>
   )
 }

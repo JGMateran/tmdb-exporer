@@ -9,7 +9,7 @@ export const Logo = ({
     <div
       {...props}
       className={clsx(
-        'dark:bg-white dark:text-gray-900 rounded-md w-6 h-6 text-sm font-extrabold flex items-center justify-center bg-gray-900 text-white',
+        'bg-white text-gray-900 rounded-md w-6 h-6 text-sm font-extrabold flex items-center justify-center',
         className
       )}
     >

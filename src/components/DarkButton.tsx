@@ -14,10 +14,10 @@ export const DarkButton = () => {
 
   return (
     <button
-      className="active:scale-95 focus:outline-none focus:ring-2 dark:ring-blue-600 dark:ring-offset-gray-900 ring-offset-4"
+      className="active:scale-90 focus:outline-none"
       onClick={() => setIsDark(!isDark)}
     >
-      {isDark ? <Sun color="#fff" /> : <Moon color="#000" />}
+      {isDark ? <Sun /> : <Moon />}
     </button>
   )
 }
