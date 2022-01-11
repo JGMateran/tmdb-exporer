@@ -35,18 +35,22 @@ export const Backdrop = (props: iMovie) => {
             <div className="mb-4 text-gray-200">
               {props.release_date && formatDate(props.release_date)}
             </div>
-            <h2 className="mb-8 text-5xl font-extrabold">
+            <h2 className="mb-8 text-4xl font-extrabold">
               {props.title}
             </h2>
-            <div className="flex space-x-4 items-center">
-              <Button>
-                <Play className="mr-3" />
-                Ver trailer
-              </Button>
-              <Button>
-                <Info className="mr-3" />
-                Mas información
-              </Button>
+            <div className="flex sm:space-x-2 sm:space-y-0 sm:items-center sm:flex-row flex-col space-y-2">
+              <div>
+                <Button>
+                  <Play className="mr-3" />
+                  Ver trailer
+                </Button>
+              </div>
+              <div>
+                <Button>
+                  <Info className="mr-3" />
+                  Mas información
+                </Button>
+              </div>
             </div>
           </div>
         </Container>
