@@ -41,7 +41,7 @@ export const Credits = ({ id }: { id: number }) => {
                     alt={cast.name}
                   />
                 </div>
-                <div className="pl-4 overflow-hidden flex flex-col">
+                <div className="pl-4 overflow-hidden items-start flex flex-col">
                   <h2 className="text-black dark:text-white font-bold truncate">{cast.name}</h2>
                   <p className="text-gray-700 dark:text-gray-400 text-sm truncate">{cast.character}</p>
                 </div>
