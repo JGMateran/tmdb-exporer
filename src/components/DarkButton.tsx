@@ -3,7 +3,7 @@ import { Sun, Moon } from 'react-feather'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export const DarkButton = () => {
-  const [isDark, setIsDark] = useLocalStorage('is-dark-mode', false)
+  const [isDark, setIsDark] = useLocalStorage('is-dark-mode', true)
 
   useEffect(
     () => {
