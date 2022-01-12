@@ -19,7 +19,7 @@ export const Player = ({ id }: { id: number }) => {
               target="_blank"
               key={video.id}
               rel="noreferrer"
-              className="flex items-center py-4 border-b border-gray-800"
+              className="flex items-center py-4 border-b border-gray-300 dark:border-gray-800"
             >
               <div>
                 <Play className="mr-4 flex-1" />
@@ -28,7 +28,7 @@ export const Player = ({ id }: { id: number }) => {
                 <h2 className="flex-1 truncate font-semibold">
                   {video.name}
                 </h2>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm dark:text-gray-400 text-gray-600">
                   {video.type}
                 </p>
               </div>
