@@ -1,11 +1,29 @@
-import { Play } from 'react-feather'
 import { useVideo } from '../lib/tmdb'
+
+import { useState, useEffect } from 'react'
+import { VideoCard } from './VideoCard'
+import { YouTubeIframe } from './YoutubeIframe'
 
 export const Player = ({ id }: { id: number }) => {
   const {
     error,
     data
   } = useVideo(id)
+
+  const [youtubeId, setYoutubeId] = useState('')
+
+  useEffect(
+    () => {
+      if (!data) return
+
+      const [trailer] = data.results
+
+      if (!trailer) return
+
+      setYoutubeId(trailer.key)
+    },
+    [data]
+  )
 
   if (error || !data) return null
 
@@ -14,28 +32,18 @@ export const Player = ({ id }: { id: number }) => {
       {
         data.results.map((video) => {
           return (
-            <a
-              href={`https://www.youtube.com/watch?v=${video.key}`}
-              target="_blank"
+            <VideoCard
+              id={video.key}
               key={video.id}
-              rel="noreferrer"
-              className="flex items-center py-4 border-b border-gray-300 dark:border-gray-800"
-            >
-              <div>
-                <Play className="mr-4 flex-1" />
-              </div>
-              <div className="overflow-hidden text-left items-start justify-center">
-                <h2 className="flex-1 truncate font-semibold">
-                  {video.name}
-                </h2>
-                <p className="text-sm dark:text-gray-400 text-gray-600">
-                  {video.type}
-                </p>
-              </div>
-            </a>
+              name={video.name}
+              type={video.type}
+              onSelect={setYoutubeId}
+            />
           )
         })
       }
+
+      <YouTubeIframe id={youtubeId} />
     </div>
   )
 }

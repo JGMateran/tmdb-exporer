@@ -16,7 +16,7 @@ export interface iVideo {
   type: string;
 }
 
-export interface iVideoPage {
+interface iVideoPage {
   id: number;
   results: iVideo[];
 }
@@ -73,6 +73,17 @@ export interface iMovie {
   vote_count: number;
 }
 
+export interface iPerson {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for: iMovie[];
+  known_for_department: string;
+  name: string;
+  popularity: number;
+  profile_path: string;
+}
+
 export function createBaseUrl (url: string) {
   return `https://api.themoviedb.org/3${url}?api_key=${API_KEY}&language=es-ES`
 }
@@ -84,17 +95,17 @@ export interface iPage {
   total_results: number;
 }
 
-export function movieFetcher (url: string) {
+export function fetcher (url: string) {
   return fetch(createBaseUrl(url))
     .then((res) => res.json())
 }
 
 export function useMovie (id: string) {
-  return useSWRImmutable<iMovie>(`/movie/${id}`, movieFetcher)
+  return useSWRImmutable<iMovie>(`/movie/${id}`, fetcher)
 }
 
-export function popularFetcher (url: string) {
-  return fetch(`${createBaseUrl('/movie/popular')}${url}`)
+export function popularFetcher (page: string) {
+  return fetch(`${createBaseUrl('/movie/popular')}${page}`)
     .then((res) => res.json())
 }
 
@@ -106,19 +117,14 @@ export function usePopular () {
   return useSWRInfinite<iPage>(getKey, popularFetcher)
 }
 
-export function fetcher (url: string): Promise<iCredits> {
-  return fetch(url).then((res) => res.json())
-}
-
 export function useCredits (id: number) {
-  return useSWRImmutable<iCredits>(
-    createBaseUrl(`/movie/${id}/credits`),
-    fetcher
-  )
+  return useSWRImmutable<iCredits>(`/movie/${id}/credits`, fetcher)
 }
 
 export function useVideo (id: number) {
-  const url = createBaseUrl(`/movie/${id}/videos`)
+  return useSWRImmutable<iVideoPage>(`/movie/${id}/videos`, fetcher)
+}
 
-  return useSWRImmutable<iVideoPage>(url, (url) => fetch(url).then((res) => res.json()))
+export function usePeople () {
+  return useSWRImmutable<iPerson>('/person/popular', fetcher)
 }

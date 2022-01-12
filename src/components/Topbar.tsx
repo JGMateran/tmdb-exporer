@@ -28,7 +28,9 @@ export const Topbar = () => {
           </h2>
 
           <div className="flex items-center space-x-6">
-            <User />
+            <Link to="/people">
+              <User />
+            </Link>
             <button onClick={setOpen.toggle}>
               <Search />
             </button>

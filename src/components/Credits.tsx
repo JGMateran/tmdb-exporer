@@ -13,7 +13,7 @@ export const Credits = ({ id }: { id: number }) => {
   if (!data) {
     return (
       <LoadingText>
-        Cargando reparto dos
+        Cargando reparto
       </LoadingText>
     )
   }
