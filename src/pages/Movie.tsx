@@ -9,6 +9,7 @@ import { Player } from '../components/Player'
 import { useEffect } from 'react'
 import { Error } from './Error'
 import { Loading } from '../components/Loading'
+import { Container } from '../components/Container'
 
 export const Movie = () => {
   const params = useParams()
@@ -34,10 +35,10 @@ export const Movie = () => {
   if (!data) return <Loading />
 
   return (
-    <>
+    <Layout title={data.title}>
       <Backdrop {...data} />
 
-      <Layout title={data.title}>
+      <Container className="py-10">
         <div className="text-center">
           <h2 id="overview" className="text-3xl font-extrabold mb-4">
             Sinopsis
@@ -49,7 +50,7 @@ export const Movie = () => {
           <Player id={data.id} />
           <Credits id={data.id} />
         </div>
-      </Layout>
-    </>
+      </Container>
+    </Layout>
   )
 }

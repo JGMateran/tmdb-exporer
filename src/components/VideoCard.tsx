@@ -14,7 +14,7 @@ export const VideoCard = ({
   return (
     <div
       onClick={() => onSelect(id)}
-      className="cursor-pointer flex items-center py-4 border-b border-gray-300 dark:border-gray-800"
+      className="hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-800/40 dark:active:bg-gray-800 cursor-pointer flex items-center p-4 border-b border-gray-300 dark:border-gray-800"
     >
       <div>
         <Play className="mr-4 flex-1" />

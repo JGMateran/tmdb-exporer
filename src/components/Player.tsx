@@ -29,19 +29,21 @@ export const Player = ({ id }: { id: number }) => {
 
   return (
     <div className="my-10">
-      {
-        data.results.map((video) => {
-          return (
-            <VideoCard
-              id={video.key}
-              key={video.id}
-              name={video.name}
-              type={video.type}
-              onSelect={setYoutubeId}
-            />
-          )
-        })
-      }
+      <div className="mb-10">
+        {
+          data.results.map((video) => {
+            return (
+              <VideoCard
+                id={video.key}
+                key={video.id}
+                name={video.name}
+                type={video.type}
+                onSelect={setYoutubeId}
+              />
+            )
+          })
+        }
+      </div>
 
       <YouTubeIframe id={youtubeId} />
     </div>

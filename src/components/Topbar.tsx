@@ -3,7 +3,6 @@ import { Container } from './Container'
 
 import { Logo } from './Logo'
 import { DarkButton } from './DarkButton'
-import { User, Search } from 'react-feather'
 
 import { Searcher } from './Searcher'
 import { useToggle } from '../hooks/useToggle'
@@ -28,12 +27,6 @@ export const Topbar = () => {
           </h2>
 
           <div className="flex items-center space-x-6">
-            <Link to="/people">
-              <User />
-            </Link>
-            <button onClick={setOpen.toggle}>
-              <Search />
-            </button>
             <DarkButton />
           </div>
         </Container>
