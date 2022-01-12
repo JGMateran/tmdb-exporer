@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useCredits } from '../lib/tmdb'
 import { Avatar } from './Avatar'
 import { LoadingText } from './LoadingText'
@@ -28,13 +29,17 @@ export const Credits = ({ id }: { id: number }) => {
         )
       }
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6">
         {
           data.cast
             .filter((cast) => cast.profile_path)
             .map((cast) => {
               return (
-              <div key={cast.id} className="dark:text-gray-400 text-gray-700 flex items-center">
+              <Link
+                to={`/person/${cast.id}`}
+                key={cast.id}
+                className="dark:text-gray-400 text-gray-700 flex items-center dark:active:bg-gray-800 dark:hover:bg-gray-800/60 py-2 px-3 rounded-md"
+              >
                 <div>
                   <Avatar
                     src={`https://image.tmdb.org/t/p//w500/${cast.profile_path}`}
@@ -49,7 +54,7 @@ export const Credits = ({ id }: { id: number }) => {
                     {cast.character}
                   </p>
                 </div>
-              </div>
+              </Link>
               )
             })
         }

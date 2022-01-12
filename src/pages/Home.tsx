@@ -2,7 +2,6 @@ import type { iMovie } from '../lib/tmdb'
 
 import { usePopular } from '../lib/tmdb'
 import { Layout } from '../components/Layout'
-import { Movies } from '../components/Movies'
 import { Button } from '../components/Button'
 import { Backdrop } from '../components/Backdrop'
 

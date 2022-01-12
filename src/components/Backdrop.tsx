@@ -24,7 +24,7 @@ export const Backdrop = (props: iMovie) => {
       <div className="relative">
         <Container className="h-96 justify-center flex flex-col">
           <div>
-            <div className="mb-4 text-gray-200">
+            <div className="mb-8 text-gray-200 text-sm">
               {props.release_date && formatDate(props.release_date)}
             </div>
             <h2 className="mb-8 text-4xl font-extrabold">

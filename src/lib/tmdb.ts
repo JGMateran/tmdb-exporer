@@ -88,9 +88,9 @@ export function createBaseUrl (url: string) {
   return `https://api.themoviedb.org/3${url}?api_key=${API_KEY}&language=es-ES`
 }
 
-export interface iPage {
+export interface iPage<T = iMovie[]> {
   page: number;
-  results: iMovie[];
+  results: T;
   total_pages: number;
   total_results: number;
 }
