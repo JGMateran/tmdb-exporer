@@ -5,11 +5,13 @@ import { Error } from './pages/Error'
 
 function App () {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/movie/:id" element={<Movie />} />
-      <Route path="*" element={<Error />} />
-    </Routes>
+    <div className="min-h-screen text-black dark:bg-gray-900 dark:text-white">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<Movie />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </div>
   )
 }
 
