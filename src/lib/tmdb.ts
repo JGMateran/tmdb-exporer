@@ -50,9 +50,9 @@ export interface iCast {
   profile_path: string | null;
 }
 
-interface iCredits {
+interface iCredits<T = iCast[]> {
   id: number;
-  cast: iCast[];
+  cast: T;
   crew: iCrew[];
 }
 
@@ -75,11 +75,17 @@ export interface iMovie {
 
 export interface iPerson {
   adult: boolean;
+  also_known_as: string[];
+  biography: string;
+  birthday: string;
+  deathday: string | null;
   gender: number;
+  homepage: string | null;
   id: number;
-  known_for: iMovie[];
-  known_for_department: string;
+  imdb_id: string;
+  known_for_department: 'string'
   name: string;
+  place_of_birth: string;
   popularity: number;
   profile_path: string;
 }
@@ -100,7 +106,7 @@ export function fetcher (url: string) {
     .then((res) => res.json())
 }
 
-export function useMovie (id: string) {
+export function useMovie (id: number) {
   return useSWRImmutable<iMovie>(`/movie/${id}`, fetcher)
 }
 
@@ -127,4 +133,12 @@ export function useVideo (id: number) {
 
 export function usePeople () {
   return useSWRImmutable<iPerson>('/person/popular', fetcher)
+}
+
+export function usePerson (id: number) {
+  return useSWRImmutable<iPerson>(`/person/${id}`, fetcher)
+}
+
+export function useMovieCredits (id: number) {
+  return useSWRImmutable<iCredits<iMovie[]>>(`/person/${id}/movie_credits`, fetcher)
 }

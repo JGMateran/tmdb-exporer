@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { Movie } from './pages/Movie'
 import { Error } from './pages/Error'
+import { Person } from './pages/Person'
 
 function App () {
   return (
@@ -9,6 +10,7 @@ function App () {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<Movie />} />
+        <Route path="/person/:id" element={<Person />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>

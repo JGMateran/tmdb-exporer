@@ -7,7 +7,7 @@ export const Popular = (props: iMovie) => {
   return (
     <Link
       className="focus:outline-none focus:scale-105 hover:scale-105 duration-150"
-      to={`movie/${props.id}`}
+      to={`/movie/${props.id}`}
     >
       <div className="relative">
         <Poster name={props.poster_path} />
