@@ -19,7 +19,12 @@ export const Person = () => {
   }
 
   return (
-    <Layout topbar="dark" title={data.name}>
+    <Layout
+      topbar="dark"
+      title={data.name}
+      description={data.biography}
+      image={`https://image.tmdb.org/t/p//w500/${data.profile_path}`}
+    >
       <Container className="pt-14 pb-10">
         <div className="flex items-center flex-col mt-16">
           <div className="h-60 w-60 rounded-full flex flex-col items-center p-1 bg-gradient-to-r from-purple-600 to-blue-600">

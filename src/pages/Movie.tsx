@@ -35,7 +35,11 @@ export const Movie = () => {
   if (!data) return <Loading />
 
   return (
-    <Layout title={data.title}>
+    <Layout
+      title={data.title}
+      image={`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`}
+      description={data.overview}
+    >
       <Backdrop {...data} />
 
       <Container className="py-10">
